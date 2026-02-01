@@ -19,7 +19,7 @@ export const Navbar = () => {
         </Link>
 
         <div className="hidden md:flex items-center gap-8">
-          <Link to="/marketplace" className="text-sm font-medium text-white/70 hover:text-white transition-colors">Explore Projects</Link>
+          <Link to="/explore" className="text-sm font-medium text-white/70 hover:text-white transition-colors">Explore Projects</Link>
           <Link to="/founders" className="text-sm font-medium text-white/70 hover:text-white transition-colors">For Founders</Link>
           <Link to="/learners" className="text-sm font-medium text-white/70 hover:text-white transition-colors">For Learners</Link>
         </div>

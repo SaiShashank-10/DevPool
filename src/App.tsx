@@ -36,7 +36,11 @@ import { Dashboard } from './pages/Dashboard'
 import { FocusRoom } from './pages/FocusRoom'
 import { Workspace } from './pages/Workspace'
 import { Marketplace } from './pages/Marketplace'
-import Wallet from './pages/Wallet'
+import WalletPage from './pages/Wallet'
+import { FoundersLanding } from './pages/FoundersLanding'
+import { LearnersLanding } from './pages/LearnersLanding'
+import { ExploreLanding } from './pages/ExploreLanding'
+import { CustomCursor } from './components/ui/CustomCursor'
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { isAuthenticated, isLoading } = useBlinkAuth()
@@ -52,8 +56,13 @@ const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
 function App() {
   return (
     <Router>
+      <CustomCursor />
       <Routes>
         <Route path="/" element={<LandingPage />} />
+        <Route path="/founders" element={<FoundersLanding />} />
+        <Route path="/learners" element={<LearnersLanding />} />
+        <Route path="/explore" element={<ExploreLanding />} />
+        
         <Route path="/onboarding" element={<Onboarding />} />
         <Route path="/auth-check" element={<DashboardRedirect />} />
         
@@ -62,7 +71,7 @@ function App() {
         <Route path="/focus" element={<ProtectedRoute><FocusRoom /></ProtectedRoute>} />
         <Route path="/chat" element={<ProtectedRoute><Workspace /></ProtectedRoute>} />
         <Route path="/marketplace" element={<ProtectedRoute><Marketplace /></ProtectedRoute>} />
-        <Route path="/wallet" element={<ProtectedRoute><Wallet /></ProtectedRoute>} />
+        <Route path="/wallet" element={<ProtectedRoute><WalletPage /></ProtectedRoute>} />
         
         <Route path="*" element={<DashboardRedirect />} />
       </Routes>

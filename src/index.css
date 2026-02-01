@@ -36,15 +36,31 @@
 @layer base {
   * {
     @apply border-border;
+    cursor: none;
   }
   body {
     @apply bg-background text-foreground antialiased selection:bg-primary/20 selection:text-primary;
     font-family: var(--font-sans);
+    cursor: none;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-heading);
     @apply tracking-tight;
   }
+}
+
+/* Enable default cursor for mobile or specific elements if needed */
+@media (max-width: 1024px) {
+  * {
+    cursor: auto !important;
+  }
+  body {
+    cursor: auto !important;
+  }
+}
+
+.cursor-pointer, button, a {
+  cursor: none !important;
 }
 
 @layer components {

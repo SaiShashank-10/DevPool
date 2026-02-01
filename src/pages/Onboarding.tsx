@@ -35,26 +35,26 @@ export const Onboarding = () => {
     try {
       const profileData = {
         id: user.id,
-        user_id: user.id,
-        display_name: formData.displayName,
+        userId: user.id,
+        displayName: formData.displayName,
         role: role,
-        github_url: formData.githubUrl,
+        githubUrl: formData.githubUrl,
         skills: formData.skills,
-        company_name: formData.companyName,
-        funding_stage: formData.fundingStage,
-        energy_level: formData.energyLevel,
+        companyName: formData.companyName,
+        fundingStage: formData.fundingStage,
+        energyLevel: formData.energyLevel,
         bio: formData.bio,
-        twitter_url: formData.twitterUrl,
-        focus_score: 85 // Initial mock score
+        twitterUrl: formData.twitterUrl,
+        focusScore: 85 // Initial mock score
       }
 
-      await blink.db.users.create(profileData as any)
+      await blink.db.users.upsert(profileData as any)
       setProfile(profileData as any)
       toast.success('Welcome to DevPool!')
       navigate('/dashboard')
     } catch (error) {
-      console.error(error)
-      toast.error('Failed to create profile')
+      console.error('Onboarding Error:', error)
+      toast.error('Failed to create profile. Please try again.')
     }
   }
 
